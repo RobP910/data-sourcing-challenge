@@ -55,14 +55,14 @@ You will use the titles list created in Part 1 to perform your queries with The 
    - Perform the actions outlined in Step 2.
    - Perform a GET request that sends the title to The Movie Database search and retrieves the JSON results.
    - Use a try clause that performs the following actions:
-    - Collect the movie ID from the first result.
-    - Make a GET request using the movie query (starting with https://api.themoviedb.org/3/movie/) and movie ID to retrieve the full movie details in JSON format.
-    - Extract the genre names from the results into a list called genres.
-    - Extract the spoken_languages' English name from the results into a list called spoken_languages.
-    - Extract the production_countries' name from the results into a list called production_countries.
-    - Create a dictionary with the following results: title, original_title, budget, original_language, homepage, overview, popularity, runtime, revenue, release_date, vote_average, vote_count, as well as the genres, spoken_languages, and production_countries lists you just created.
-    - Append this dictionary to tmdb_movies_list.
-    - Print out the name of the movie and a message to indicate that the title was found.
+     - Collect the movie ID from the first result.
+     - Make a GET request using the movie query (starting with https://api.themoviedb.org/3/movie/) and movie ID to retrieve the full movie details in JSON format.
+     - Extract the genre names from the results into a list called genres.
+     - Extract the spoken_languages' English name from the results into a list called spoken_languages.
+     - Extract the production_countries' name from the results into a list called production_countries.
+     - Create a dictionary with the following results: title, original_title, budget, original_language, homepage, overview, popularity, runtime, revenue, release_date, vote_average, vote_count, as well as the genres, spoken_languages, and production_countries lists you just created.
+     - Append this dictionary to tmdb_movies_list.
+     - Print out the name of the movie and a message to indicate that the title was found.
    - Use the except clause to print out a statement if a movie is not found.
 ### Preview the first five results in JSON format using json.dumps with the argument indent=4 to format the data.
 ### Convert the results to a DataFrame called tmdb_df with pd.DataFrame(). You don't need to use json_normalize() this time because we don't have nested objects.
@@ -73,8 +73,8 @@ You will use the titles list created in Part 1 to perform your queries with The 
    - Create a list of the columns that need fixing called columns_to_fix.
    - Create a list of characters to remove called characters_to_remove.
    - Loop through columns_to_fix and do the following:
-    - Use astype() to convert the column to a string.
-    - Loop through the characters_to_remove and use the Pandas str.replace() method to remove the character from the string.
+     - Use astype() to convert the column to a string.
+     - Loop through the characters_to_remove and use the Pandas str.replace() method to remove the character from the string.
    - Print the head of the updated DataFrame to confirm the list characters were removed.
 ### Delete any duplicate rows and reset the index.
 ### Export data to a CSV file without the DataFrame's index.
