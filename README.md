@@ -4,23 +4,39 @@ Part 1: Access the New York Times API.
 Part 2: Access The Movie Database API.
 Part 3: Merge and Clean the Data for Export.
 The starter code includes importing the required dependencies and your API keys from your .env file, but you will need to ensure your API keys are added to that file.
+
 # Part 1: Access the New York Times API
 ### The base URL is included in the starter code, along with the search string and query dates. Consult the New York Times Article Search API documentationLinks to an external site. to help you build your query_url using these variables.
 If you accidentally delete these variables, they are:
+
 <<< # Set the base URL
+
 <<< url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?"
+
 <<< # Filter for movie reviews with "love" in the headline
+
 <<< # section_name should be "Movies"
+
 <<< # type_of_material should be "Review"
+
 <<< filter_query = 'section_name:"Movies" AND type_of_material:"Review" AND headline:"love"'
+
 <<< # Use a sort filter, sort by newest
+
 <<< sort = "newest"
+
 <<< # Select the following fields to return:
+
 <<< # headline, web_url, snippet, source, keywords, pub_date, byline, word_count
+
 <<< field_list = "headline,web_url,snippet,source,keywords,pub_date,byline,word_count"
+
 <<< # Search for reviews published between a begin and end date
+
 <<< begin_date = "20130101"
+
 <<< end_date = "20230531"
+
 ### Create an empty list called reviews_list to store the reviews you retrieve from the API.
 ### The Article Search API limits results to 10 per page, but we want to try to retrieve 200. To do this, create a for loop to loop through 20 pages (starting from page 0). Inside the loop, perform the following actions:
  - Extend the query_url created in Step 1 to include the page parameter.
@@ -34,16 +50,22 @@ If you accidentally delete these variables, they are:
 ### Preview the first five results in JSON format using json.dumps with the argument indent=4 to format the data.
 ### Convert reviews_list to a Pandas DataFrame using json_normalize()
 ### Extract the movie title from the "headline.main" column and save it to a new column "title". To do this, you will use the Pandas apply() method and the following lambda function:
+
 <<< lambda st: st[st.find("\u2018")+1:st.find("\u2019 Review")]
+
 This code takes the string in the cell and extracts the characters between the unicode quotation marks, as long as a space and the word "Review" follows the closing quotation mark.
 ### Use the supplied extract_keywords function to convert the "keywords" column from a list of dictionaries to strings using the apply() method.
 ### Create a list called titles from the "title" column using to_list(). These titles will be used in the query for The Movie Database.
 Part 2: Access The Movie Database API
 Consult the Search & Query for Details documentationLinks to an external site. to build your query URLs. You will be making both types of requests to extract all of the details you need:
  - The search query is used to find the movie ID from the search by title. Most of this query is included in your starter code, as follows, but you will need to include the movie title in the query.
+
 <<< # Prepare The Movie Database query
+
 <<< url = "https://api.themoviedb.org/3/search/movie?query="
+
 <<< tmdb_key_string = "&api_key=" + tmdb_api_key
+
  - The movie query is made once you have the movie ID.
 You will use the titles list created in Part 1 to perform your queries with The Movie Database.
 ### Create an empty list called tmdb_movies_list to store the results from your API requests. This will contain a list of dictionaries.
