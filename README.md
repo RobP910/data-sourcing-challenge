@@ -100,3 +100,6 @@ You will use the titles list created in Part 1 to perform your queries with The 
    - Print the head of the updated DataFrame to confirm the list characters were removed.
 ### Delete any duplicate rows and reset the index.
 ### Export data to a CSV file without the DataFrame's index.
+
+** The code in this assignment was written by Rob Pavlik with help from; Nic Major & ChatGPT **
+
